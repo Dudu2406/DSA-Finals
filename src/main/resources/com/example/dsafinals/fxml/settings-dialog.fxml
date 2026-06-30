@@ -22,13 +22,13 @@
                 <HBox alignment="CENTER" spacing="10">
                     <children>
                         <TextField fx:id="directoryField" prefHeight="35.0" promptText="No directory selected" HBox.hgrow="ALWAYS" />
-                        <Button fx:id="browseButton" prefHeight="25.0" styleClass="primary-button" stylesheets="@../stylesheets/buttons.css" text="Browse..." />
+                        <Button fx:id="browseButton" onAction="#handleBrowse" prefHeight="25.0" styleClass="primary-button" stylesheets="@../stylesheets/buttons.css" text="Browse..." />
                     </children>
                 </HBox>
 
                 <HBox alignment="BOTTOM_RIGHT" VBox.vgrow="ALWAYS">
                     <children>
-                        <Button fx:id="closeButton" styleClass="transparent-button" stylesheets="@../stylesheets/buttons.css" text="Close" />
+                        <Button fx:id="closeButton" onAction="#handleClose" styleClass="transparent-button" stylesheets="@../stylesheets/buttons.css" text="Close" />
                     </children>
                 </HBox>
             </children>
