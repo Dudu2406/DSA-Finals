@@ -43,7 +43,7 @@
 }
 
 .colored-icon-box {
-    -fx-background-color: #2ecc71; /* Green color */
+    -fx-background-color: -primary-color; /* Primary color */
     -fx-background-radius: 10px; /* Smooth rounded box */
     -fx-min-width: 50px;
     -fx-min-height: 50px;
