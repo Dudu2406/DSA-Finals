@@ -15,10 +15,16 @@ public class DashboardController {
     private StackPane albumsIconBox;
 
     @FXML
+    private StackPane activityIconBox;
+
+    @FXML
     public void initialize() {
         entriesIconBox.getChildren().add(createIcon("mdi2b-book-open-page-variant"));
         photosIconBox.getChildren().add(createIcon("mdi2i-image"));
         albumsIconBox.getChildren().add(createIcon("mdi2f-folder"));
+        FontIcon activityIcon = createIcon("mdi2h-history");
+        activityIcon.getStyleClass().setAll("muted-icon");
+        activityIconBox.getChildren().add(activityIcon);
     }
 
     private FontIcon createIcon(String iconCode) {

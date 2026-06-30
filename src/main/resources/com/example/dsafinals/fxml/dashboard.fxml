@@ -66,6 +66,53 @@
                     </HBox>
                 </children>
             </HBox>
+            <VBox maxWidth="1.7976931348623157E308" styleClass="card" VBox.vgrow="ALWAYS">
+                <VBox.margin>
+                    <Insets top="20.0" />
+                </VBox.margin>
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                </padding>
+                <children>
+                    <HBox alignment="CENTER_LEFT" spacing="15">
+                        <children>
+                            <StackPane fx:id="activityIconBox" />
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="card-title" text="Recent Activity" />
+                        </children>
+                        <VBox.margin>
+                            <Insets bottom="15.0" />
+                        </VBox.margin>
+                    </HBox>
+                    <VBox spacing="8.0">
+                        <children>
+                            <HBox spacing="10.0">
+                                <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="muted-text" text="Jun 30" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Got a new puppy!" />
+                                </children>
+                            </HBox>
+                            <HBox spacing="10.0">
+                                <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="muted-text" text="Jun 29" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Met a new friend in College" />
+                                </children>
+                            </HBox>
+                            <HBox spacing="10.0">
+                                <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="muted-text" text="Jun 28" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Mom's Birthday" />
+                                </children>
+                            </HBox>
+                            <HBox spacing="10.0">
+                                <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="muted-text" text="Jun 27" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Stress Over Finals..." />
+                                </children>
+                            </HBox>
+                        </children>
+                    </VBox>
+                </children>
+            </VBox>
         </children>
     </VBox>
 </VBox>

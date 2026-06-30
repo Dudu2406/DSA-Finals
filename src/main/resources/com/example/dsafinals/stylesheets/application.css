@@ -66,6 +66,16 @@
     -fx-icon-color: white;
 }
 
+.muted-icon {
+    -fx-icon-color: #93a1a1;
+}
+
+.card-title {
+    -fx-font-size: 22;
+    -fx-font-weight: bold;
+    -fx-fill: -primary-text;
+}
+
 .topbar-icon-disabled {
     -fx-icon-color: #353535;
     -fx-background-color: transparent;
