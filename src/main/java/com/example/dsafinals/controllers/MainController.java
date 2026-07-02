@@ -50,6 +50,7 @@ public class MainController {
     @FXML
     public void initialize() {
         selectedButton = dashboardButton;
+        loadPage("dashboard.fxml");
 
         // Set icons for each button
         dashboardButton.setGraphic(createIcon("mdi2h-home"));
@@ -131,6 +132,7 @@ public class MainController {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initOwner(settingsButton.getScene().getWindow());
             stage.setResizable(false);
+//            stage.initStyle(StageStyle.UNDECORATED);
 
             Scene scene = new Scene(root, 400, 250);
 //            scene.getStylesheets().addAll(getClass().getResource("/com/example/dsafinals/stylesheets/application.css").toExternalForm(), getClass().getResource("/com/example/dsafinals/stylesheets/buttons.css").toExternalForm());

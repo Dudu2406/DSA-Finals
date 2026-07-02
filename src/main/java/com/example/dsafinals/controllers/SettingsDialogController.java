@@ -39,11 +39,13 @@ public class SettingsDialogController {
             }
         }
 
+        // When directory gets selected
         File selectedDirectory = directoryChooser.showDialog(browseButton.getScene().getWindow());
         if (selectedDirectory != null) {
             String path = selectedDirectory.getAbsolutePath();
             directoryField.setText(path);
             SettingsManager.saveDirectoryPath(path);
+            System.out.println(path);
         }
     }
 
