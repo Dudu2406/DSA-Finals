@@ -153,3 +153,136 @@
     -fx-shape: " "; /* Empties out the default arrow graphics */
     -fx-padding: 0;
 }
+
+/* Journal Styles */
+.journal-card {
+    -fx-background-color: #262626;
+    -fx-background-radius: 12px;
+    -fx-border-color: #404040;
+    -fx-border-width: 1px;
+    -fx-border-radius: 12px;
+    -fx-border-style: solid;
+    -fx-padding: 16;
+    -fx-spacing: 8;
+}
+
+.journal-card:hover {
+    -fx-border-color: #155dfc;
+    -fx-cursor: hand;
+}
+
+.journal-date {
+    -fx-font-size: 13;
+    -fx-fill: #93a1a1;
+    -fx-font-weight: 600;
+}
+
+.journal-today-badge {
+    -fx-fill: #155dfc;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+}
+
+.journal-card-title {
+    -fx-font-size: 18;
+    -fx-fill: white;
+    -fx-font-weight: bold;
+}
+
+.journal-tags {
+    -fx-font-size: 13;
+    -fx-fill: #155dfc;
+}
+
+.journal-content-preview {
+    -fx-font-size: 14;
+    -fx-fill: #c0c0c0;
+    -fx-line-spacing: 2;
+}
+
+.journal-icon-btn {
+    -fx-min-width: 28;
+    -fx-min-height: 28;
+    -fx-max-width: 28;
+    -fx-max-height: 28;
+    -fx-background-radius: 6;
+    -fx-padding: 4;
+    -fx-cursor: hand;
+}
+
+.journal-icon-btn:hover {
+    -fx-background-color: #333333;
+}
+
+.journal-search {
+    -fx-background-color: #262626;
+    -fx-background-radius: 10px;
+    -fx-border-color: #404040;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #666666;
+    -fx-padding: 10 14;
+    -fx-font-size: 14;
+}
+
+.journal-search:focused {
+    -fx-border-color: #155dfc;
+}
+
+.journal-field-title {
+    -fx-background-color: #1a1a1a;
+    -fx-background-radius: 8px;
+    -fx-border-color: #404040;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-text-fill: white;
+    -fx-padding: 10 14;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+}
+
+.journal-field-title:focused {
+    -fx-border-color: #155dfc;
+}
+
+.journal-field-tags {
+    -fx-background-color: #1a1a1a;
+    -fx-background-radius: 8px;
+    -fx-border-color: #404040;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-text-fill: #155dfc;
+    -fx-padding: 8 14;
+    -fx-font-size: 13;
+}
+
+.journal-field-tags:focused {
+    -fx-border-color: #155dfc;
+}
+
+.journal-field-content {
+    -fx-background-color: #1a1a1a;
+    -fx-background-radius: 8px;
+    -fx-border-color: #404040;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-text-fill: white;
+    -fx-padding: 10 14;
+    -fx-font-size: 14;
+    -fx-line-spacing: 3;
+}
+
+.journal-field-content:focused {
+    -fx-border-color: #155dfc;
+}
+
+.journal-scroll {
+    -fx-background-color: -bg-color;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.journal-scroll .viewport {
+    -fx-background-color: -bg-color;
+}

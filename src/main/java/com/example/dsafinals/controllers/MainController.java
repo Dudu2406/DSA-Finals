@@ -70,6 +70,11 @@ public class MainController {
         bindSidebarButton(photosButton, "photos.fxml");
         settingsButton.setOnAction(e -> openSettingsDialog());
 
+        // Wire the top toolbar "New Entry" button
+//        newEntryButton.setOnAction(e -> {
+//            loadAndGoToJournal();
+//        });
+
         // Resize the sidebar based on the window width
         sidebar.sceneProperty().addListener((obs, oldScene, newScene) -> {
             if (newScene != null) {
@@ -86,7 +91,6 @@ public class MainController {
             Parent page = FXMLLoader.load(url);
 
             contentArea.getChildren().setAll(page);
-
         } catch (IOException e) {
             e.printStackTrace();
         }

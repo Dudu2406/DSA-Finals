@@ -11,14 +11,11 @@ import java.io.File;
 
 public class SettingsDialogController {
 
-    @FXML
-    private TextField directoryField;
+    @FXML private TextField directoryField;
 
-    @FXML
-    private Button browseButton;
+    @FXML private Button browseButton;
 
-    @FXML
-    private Button closeButton;
+    @FXML private Button closeButton;
 
     @FXML
     public void initialize() {

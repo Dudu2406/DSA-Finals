@@ -5,17 +5,10 @@ import javafx.scene.layout.StackPane;
 import org.kordamp.ikonli.javafx.FontIcon;
 
 public class DashboardController {
-    @FXML
-    private StackPane entriesIconBox;
-
-    @FXML
-    private StackPane photosIconBox;
-
-    @FXML
-    private StackPane albumsIconBox;
-
-    @FXML
-    private StackPane activityIconBox;
+    @FXML private StackPane entriesIconBox;
+    @FXML private StackPane photosIconBox;
+    @FXML private StackPane albumsIconBox;
+    @FXML private StackPane activityIconBox;
 
     @FXML
     public void initialize() {
