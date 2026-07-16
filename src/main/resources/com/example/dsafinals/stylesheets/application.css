@@ -162,3 +162,77 @@
 .tree-view .tree-cell .tree-disclosure-node .arrow {
     -fx-background-color: white;
 }
+
+/* ── DatePicker (main control) ── */
+.date-picker {
+    -fx-background-color: #1e1e1e;
+    -fx-border-color: #333;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+.date-picker > .text-field {
+    -fx-background-color: #1e1e1e;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #555;
+    -fx-background-radius: 6 0 0 6;
+}
+
+.date-picker > .arrow-button {
+    -fx-background-color: #1e1e1e;
+    -fx-background-radius: 0 6 6 0;
+    -fx-border-color: #333;
+    -fx-border-width: 0 0 0 1;
+}
+
+.date-picker > .arrow-button > .arrow {
+    -fx-background-color: #93a1a1;
+}
+
+/* ── Calendar popup ── */
+.date-picker-popup {
+    -fx-background-color: #171717;
+    -fx-border-color: #262626;
+    -fx-border-width: 1;
+}
+
+.date-picker-popup > .month-year-pane {
+    -fx-background-color: #1e1e1e;
+}
+
+.date-picker-popup > .month-year-pane > .label {
+    -fx-text-fill: white;
+}
+
+.date-picker-popup > .month-year-pane > .button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.date-picker-popup > .calendar-grid {
+    -fx-background-color: #171717;
+}
+
+.date-picker-popup > .calendar-grid .day-cell {
+    -fx-background-color: #171717;
+    -fx-text-fill: #e5e5e5;
+}
+
+.date-picker-popup > .calendar-grid .day-cell:hover {
+    -fx-background-color: #262626;
+}
+
+.date-picker-popup > .calendar-grid .day-cell:selected {
+    -fx-background-color: #155dfc;
+    -fx-text-fill: white;
+}
+
+.date-picker-popup > .calendar-grid .day-cell:today {
+    -fx-border-color: #155dfc;
+    -fx-border-width: 1;
+}
+
+.date-picker-popup > .calendar-grid .week-number-cell {
+    -fx-background-color: #171717;
+    -fx-text-fill: #555;
+}

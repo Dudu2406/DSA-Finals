@@ -159,9 +159,7 @@
                                 <HBox alignment="CENTER_LEFT" spacing="14.0">
                                     <children>
                                         <Text styleClass="muted-text" text="Date"/>
-                                        <DatePicker fx:id="datePicker"
-                                                    style="-fx-background-color: #1e1e1e; -fx-text-fill: white;"
-                                                    prefWidth="170.0"/>
+                                        <DatePicker fx:id="datePicker" prefWidth="170.0"/>
                                         <TextField fx:id="tagInputField"
                                                    promptText="Add a tag and press Enter…"
                                                    HBox.hgrow="ALWAYS"
