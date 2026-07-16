@@ -17,11 +17,7 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 
 import java.io.File;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.YearMonth;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.util.ArrayList;
@@ -31,25 +27,42 @@ import java.util.Locale;
 public class JournalController {
 
     // Sidebar (entry list)
-    @FXML private TextField searchField;
-    @FXML private Button    newEntryButton;
-    @FXML private ScrollPane listScrollPane;
-    @FXML private VBox      groupedListContainer;
-    @FXML private StackPane emptyState;
+    @FXML
+    private TextField searchField;
+    @FXML
+    private Button newEntryButton;
+    @FXML
+    private ScrollPane listScrollPane;
+    @FXML
+    private VBox groupedListContainer;
+    @FXML
+    private StackPane emptyState;
 
     // Detail / editor
-    @FXML private VBox      detailEmptyState;
-    @FXML private ScrollPane editorScrollPane;
-    @FXML private Text      dateTimeText;
-    @FXML private Button    deleteButton;
-    @FXML private Button    saveButton;
-    @FXML private TextField titleField;
-    @FXML private DatePicker datePicker;
-    @FXML private TextField tagInputField;
-    @FXML private FlowPane  tagsFlowPane;
-    @FXML private TextArea  contentArea;
-    @FXML private FlowPane  photosFlowPane;
-    @FXML private Button    addPhotoButton;
+    @FXML
+    private VBox detailEmptyState;
+    @FXML
+    private ScrollPane editorScrollPane;
+    @FXML
+    private Text dateTimeText;
+    @FXML
+    private Button deleteButton;
+    @FXML
+    private Button saveButton;
+    @FXML
+    private TextField titleField;
+    @FXML
+    private DatePicker datePicker;
+    @FXML
+    private TextField tagInputField;
+    @FXML
+    private FlowPane tagsFlowPane;
+    @FXML
+    private TextArea contentArea;
+    @FXML
+    private FlowPane photosFlowPane;
+    @FXML
+    private Button addPhotoButton;
 
     private final DataStore store = DataStore.getInstance();
     private JournalEntry currentEntry = null;   // null → drafting a new, unsaved entry
@@ -117,7 +130,7 @@ public class JournalController {
         Text header = new Text(ym.format(MONTH_HEADER_FMT));
         header.setFill(javafx.scene.paint.Color.web("#93a1a1"));
         header.setFont(Font.font("System", FontWeight.BOLD, 13));
-        VBox.setMargin(header, new Insets(14, 18, 6, 18));
+        VBox.setMargin(header, new Insets(14, 24, 6, 24));
         return header;
     }
 
@@ -127,8 +140,11 @@ public class JournalController {
         HBox row = new HBox(12);
         row.setAlignment(Pos.CENTER_LEFT);
         row.setPadding(new Insets(10, 18, 10, 18));
+        VBox.setMargin(row, new Insets(2, 9, 2, 9));
         row.setStyle(rowStyle(selected));
-        row.setOnMouseEntered(e -> { if (!isSelected(entry)) row.setStyle(rowStyle(false, true)); });
+        row.setOnMouseEntered(e -> {
+            if (!isSelected(entry)) row.setStyle(rowStyle(false, true));
+        });
         row.setOnMouseExited(e -> row.setStyle(rowStyle(isSelected(entry))));
         row.setOnMouseClicked(e -> openEditor(entry));
 
@@ -178,7 +194,8 @@ public class JournalController {
             try {
                 File f = new File(entry.getPhotoPaths().get(0));
                 if (f.exists()) thumb.setImage(new Image(f.toURI().toString(), 46, 46, false, true, true));
-            } catch (Exception ignored) {}
+            } catch (Exception ignored) {
+            }
 
             StackPane thumbHolder = new StackPane(thumb);
             thumbHolder.setStyle("-fx-background-color: #262626; -fx-background-radius: 8;");
@@ -298,12 +315,13 @@ public class JournalController {
             if (f.exists()) {
                 imageView.setImage(new Image(f.toURI().toString(), 110, 110, false, true, true));
             }
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
 
         Button removeBtn = new Button("✕");
         removeBtn.setStyle("-fx-background-color: rgba(0,0,0,0.65); -fx-text-fill: white; " +
-                           "-fx-font-size: 11px; -fx-padding: 2 5; -fx-cursor: hand; " +
-                           "-fx-background-radius: 20;");
+                "-fx-font-size: 11px; -fx-padding: 2 5; -fx-cursor: hand; " +
+                "-fx-background-radius: 20;");
         StackPane.setAlignment(removeBtn, Pos.TOP_RIGHT);
         StackPane.setMargin(removeBtn, new Insets(4));
         removeBtn.setOnAction(e -> {
@@ -318,7 +336,7 @@ public class JournalController {
     // SAVE / DELETE / ADD PHOTO
 
     private void handleSave() {
-        String title   = titleField.getText() == null ? "" : titleField.getText().trim();
+        String title = titleField.getText() == null ? "" : titleField.getText().trim();
         String content = contentArea.getText() == null ? "" : contentArea.getText();
         LocalDate date = datePicker.getValue() != null ? datePicker.getValue() : LocalDate.now();
 
@@ -428,7 +446,7 @@ public class JournalController {
         HBox chip = new HBox(4);
         chip.setAlignment(Pos.CENTER);
         chip.setStyle("-fx-background-color: #262626; -fx-background-radius: 20; " +
-                      "-fx-padding: 3 10 3 10;");
+                "-fx-padding: 3 10 3 10;");
 
         Label label = new Label(tag);
         label.setStyle("-fx-text-fill: white; -fx-font-size: 11px;");
@@ -437,7 +455,7 @@ public class JournalController {
         if (onRemove != null) {
             Button removeBtn = new Button("✕");
             removeBtn.setStyle("-fx-background-color: transparent; -fx-text-fill: #93a1a1; " +
-                               "-fx-padding: 0 0 0 2; -fx-cursor: hand; -fx-font-size: 10px;");
+                    "-fx-padding: 0 0 0 2; -fx-cursor: hand; -fx-font-size: 10px;");
             removeBtn.setOnAction(e -> onRemove.run());
             chip.getChildren().add(removeBtn);
         }
