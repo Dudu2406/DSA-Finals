@@ -154,7 +154,7 @@ public class JournalController {
         dateBadge.setMinWidth(38);
         Label weekday = new Label(entry.getDate().getDayOfWeek()
                 .getDisplayName(TextStyle.SHORT, Locale.ENGLISH).toUpperCase());
-        weekday.setStyle("-fx-text-fill: #93a1a1; -fx-font-size: 10px; -fx-font-weight: bold;");
+        weekday.setStyle("-fx-text-fill: " + (selected ? "#d0d8ff" : "#93a1a1") + "; -fx-font-size: 10px; -fx-font-weight: bold;");
         Label dayNum = new Label(String.format("%02d", entry.getDate().getDayOfMonth()));
         dayNum.setStyle("-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;");
         dateBadge.getChildren().addAll(weekday, dayNum);
@@ -173,12 +173,12 @@ public class JournalController {
                 entry.getContent().replaceAll("\\s+", " ").trim();
         if (snippetText.length() > 70) snippetText = snippetText.substring(0, 70) + "…";
         Label snippet = new Label(snippetText);
-        snippet.setStyle("-fx-text-fill: #93a1a1; -fx-font-size: 12px;");
+        snippet.setStyle("-fx-text-fill: " + (selected ? "#d0d8ff" : "#93a1a1") + "; -fx-font-size: 12px;");
         snippet.setWrapText(true);
         snippet.setMaxWidth(190);
 
         Label time = new Label(createdDateTime(entry).format(TIME_FMT));
-        time.setStyle("-fx-text-fill: #555; -fx-font-size: 11px;");
+        time.setStyle("-fx-text-fill: " + (selected ? "#a0b0e8" : "#555") + "; -fx-font-size: 11px;");
 
         textCol.getChildren().addAll(title, snippet, time);
 
