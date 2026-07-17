@@ -150,6 +150,14 @@
     -fx-background-color: -sidebar-color;
 }
 
+.album-tree .tree-cell {
+    -fx-background-color: -bg-color;
+}
+
+.album-tree .tree-cell:empty {
+    -fx-background-color: -bg-color;
+}
+
 .tree-view .tree-cell:selected {
     -fx-background-color: -primary-color;
 }
