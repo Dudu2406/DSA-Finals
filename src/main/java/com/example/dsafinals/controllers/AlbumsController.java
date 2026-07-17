@@ -1,5 +1,6 @@
 package com.example.dsafinals.controllers;
 
+import com.example.dsafinals.components.MasonryPane;
 import com.example.dsafinals.datastructures.AlbumTree;
 import com.example.dsafinals.datastructures.Sorter;
 import com.example.dsafinals.models.Album;
@@ -28,7 +29,7 @@ public class AlbumsController {
     @FXML private Button deleteAlbumButton;
     @FXML private Button importPhotoButton;
     @FXML private ComboBox<String> sortComboBox;
-    @FXML private FlowPane photoGrid;
+    @FXML private MasonryPane photoGrid;
     @FXML private Text albumNameText;
     @FXML private Text photoCountText;
     @FXML private StackPane emptyState;
@@ -233,27 +234,23 @@ public class AlbumsController {
 
         // Thumbnail
         ImageView imageView = new ImageView();
-        imageView.setFitWidth(134);
-        imageView.setFitHeight(110);
-        imageView.setPreserveRatio(false);
+        imageView.setPreserveRatio(true);
         imageView.setSmooth(true);
 
         try {
             File imgFile = new File(photo.getFilePath());
             if (imgFile.exists()) {
-                Image img = new Image(imgFile.toURI().toString(), 134, 110, false, true, true);
+                Image img = new Image(imgFile.toURI().toString(), 500, 0, true, false);
                 imageView.setImage(img);
-            } else {
-                imageView.setStyle("-fx-background-color: #333;");
             }
-        } catch (Exception e) {
-            imageView.setStyle("-fx-background-color: #333;");
-        }
+        } catch (Exception ignored) {}
+
+        imageView.fitWidthProperty().bind(card.widthProperty().subtract(16));
 
         // File name label
         Label nameLabel = new Label(truncate(photo.getFileName(), 18));
         nameLabel.setStyle("-fx-text-fill: #cccccc; -fx-font-size: 11px;");
-        nameLabel.setMaxWidth(134);
+        nameLabel.setMaxWidth(200);
 
         // Date label
         Label dateLabel = new Label(photo.getDateTaken().toString());

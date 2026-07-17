@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.example.dsafinals.components.MasonryPane?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -67,7 +68,7 @@
     </VBox>
 
     <!-- RIGHT PANEL: Photo Grid -->
-    <VBox HBox.hgrow="ALWAYS" maxHeight="1.7976931348623157E308">
+    <VBox HBox.hgrow="ALWAYS" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
         <padding>
             <Insets top="20" left="20" right="20" bottom="20"/>
         </padding>
@@ -107,15 +108,11 @@
 
         <!-- Photo grid inside scroll pane -->
         <ScrollPane VBox.vgrow="ALWAYS" fitToWidth="true"
-                    style="-fx-background-color: #0a0a0a;"
+                    style="-fx-background-color: #0a0a0a; -fx-background: #0a0a0a;"
                     stylesheets="@../stylesheets/application.css">
             <content>
-                <FlowPane fx:id="photoGrid" hgap="12" vgap="12"
-                          style="-fx-background-color: #0a0a0a;">
-                    <padding>
-                        <Insets top="4" bottom="4"/>
-                    </padding>
-                </FlowPane>
+                <MasonryPane fx:id="photoGrid"
+                             columnWidth="150" hgap="12" vgap="12"/>
             </content>
         </ScrollPane>
 

@@ -39,7 +39,8 @@ public class MasonryPane extends Pane {
 
     @Override
     protected double computePrefWidth(double height) {
-        return Double.MAX_VALUE;
+        Insets insets = getInsets();
+        return insets.getLeft() + columnWidth.get() + insets.getRight();
     }
 
     private double[] layoutMetrics() {
