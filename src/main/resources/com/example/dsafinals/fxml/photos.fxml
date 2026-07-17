@@ -78,7 +78,7 @@
 
                 <!-- Photo grid -->
                 <MasonryPane fx:id="photoGrid"
-                             columnWidth="150" hgap="12" vgap="12"/>
+                             columnWidth="250" hgap="12" vgap="12"/>
 
                 <!-- Empty state -->
                 <StackPane fx:id="emptyState" managed="false" visible="false" prefHeight="200.0">

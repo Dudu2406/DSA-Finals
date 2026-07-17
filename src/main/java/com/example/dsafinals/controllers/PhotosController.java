@@ -127,7 +127,7 @@ public class PhotosController {
         try {
             File imgFile = new File(photo.getFilePath());
             if (imgFile.exists()) {
-                Image img = new Image(imgFile.toURI().toString(), 300, 0, true, false);
+                Image img = new Image(imgFile.toURI().toString(), 500, 0, true, false);
                 imageView.setImage(img);
             }
         } catch (Exception ignored) {}
