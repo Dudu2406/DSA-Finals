@@ -4,6 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
       style="-fx-background-color: -bg-color;"
       stylesheets="@../stylesheets/application.css"
@@ -32,9 +33,13 @@
                                 </font>
                             </Text>
                             <Region HBox.hgrow="ALWAYS"/>
-                            <Button fx:id="newAlbumButton" text="+" styleClass="primary-button"
+                            <Button fx:id="newAlbumButton"
+                                    styleClass="icon-button"
                                     stylesheets="@../stylesheets/buttons.css"
                                     mnemonicParsing="false">
+                                <graphic>
+                                    <FontIcon iconLiteral="mdi2p-plus" iconSize="20" iconColor="#50a2ff"/>
+                                </graphic>
                                 <padding>
                                     <Insets top="6.0" bottom="6.0" left="12.0" right="12.0"/>
                                 </padding>

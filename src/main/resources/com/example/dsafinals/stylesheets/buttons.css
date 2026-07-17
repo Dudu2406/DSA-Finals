@@ -37,3 +37,12 @@
     -fx-fill: white;
     -fx-icon-color: white;
 }
+
+.icon-button {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+.icon-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+}
