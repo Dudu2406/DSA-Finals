@@ -1,5 +1,6 @@
 package com.example.dsafinals.controllers;
 
+import com.example.dsafinals.components.MasonryPane;
 import com.example.dsafinals.datastructures.Sorter;
 import com.example.dsafinals.models.Photo;
 import com.example.dsafinals.storage.DataStore;
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class PhotosController {
 
-    @FXML private FlowPane   photoGrid;
+    @FXML private MasonryPane   photoGrid;
     @FXML private ComboBox<String> sortComboBox;
     @FXML private TextField  searchField;
     @FXML private Text       photoCountText;
@@ -115,29 +116,26 @@ public class PhotosController {
 
     private VBox buildPhotoCard(Photo photo) {
         VBox card = new VBox(6);
-        card.setAlignment(Pos.CENTER);
-        card.setPrefWidth(150);
-        card.setMaxWidth(150);
+        card.setAlignment(Pos.TOP_CENTER);
         card.setStyle("-fx-background-color: #1e1e1e; -fx-background-radius: 10; -fx-cursor: hand;");
         card.setPadding(new Insets(8));
 
         ImageView imageView = new ImageView();
-        imageView.setFitWidth(134);
-        imageView.setFitHeight(110);
-        imageView.setPreserveRatio(false);
+        imageView.setPreserveRatio(true);
         imageView.setSmooth(true);
 
         try {
             File imgFile = new File(photo.getFilePath());
             if (imgFile.exists()) {
-                Image img = new Image(imgFile.toURI().toString(), 134, 110, false, true, true);
+                Image img = new Image(imgFile.toURI().toString(), 300, 0, true, false);
                 imageView.setImage(img);
             }
         } catch (Exception ignored) {}
 
+        imageView.fitWidthProperty().bind(card.widthProperty().subtract(16));
+
         Label nameLabel = new Label(truncate(photo.getFileName(), 18));
         nameLabel.setStyle("-fx-text-fill: #cccccc; -fx-font-size: 11px;");
-        nameLabel.setMaxWidth(134);
 
         Label dateLabel = new Label(photo.getDateTaken().toString());
         dateLabel.setStyle("-fx-text-fill: #666; -fx-font-size: 10px;");

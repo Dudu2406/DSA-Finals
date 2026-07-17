@@ -9,6 +9,9 @@ module com.example.dsafinals {
     exports com.example.dsafinals.controllers;
     opens com.example.dsafinals.controllers to javafx.fxml;
 
+    exports com.example.dsafinals.components;
+    opens com.example.dsafinals.components to javafx.fxml;
+
     exports com.example.dsafinals.models;
     exports com.example.dsafinals.storage;
     exports com.example.dsafinals.datastructures;
