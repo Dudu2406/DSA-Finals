@@ -38,15 +38,32 @@ public class MasonryPane extends Pane {
     public DoubleProperty vgapProperty() { return vgap; }
 
     @Override
+    protected double computePrefWidth(double height) {
+        return Double.MAX_VALUE;
+    }
+
+    private double[] layoutMetrics() {
+        Insets insets = getInsets();
+        double availWidth = Math.max(0, getWidth() - insets.getLeft() - insets.getRight());
+        double hg = hgap.get();
+        double vg = vgap.get();
+        double minW = columnWidth.get();
+        int cols = Math.max(1, (int) ((availWidth + hg) / (minW + hg)));
+        double actualW = cols > 0 ? (availWidth - (cols - 1) * hg) / cols : minW;
+        return new double[]{actualW, hg, vg, cols, insets.getLeft(), insets.getTop()};
+    }
+
+    @Override
     protected double computePrefHeight(double width) {
         Insets insets = getInsets();
         double availWidth = (width == -1 ? getWidth() : width) - insets.getLeft() - insets.getRight();
         if (availWidth <= 0) return 0;
 
-        double cw = columnWidth.get();
+        double minW = columnWidth.get();
         double hg = hgap.get();
         double vg = vgap.get();
-        int cols = Math.max(1, (int) ((availWidth + hg) / (cw + hg)));
+        int cols = Math.max(1, (int) ((availWidth + hg) / (minW + hg)));
+        double actualW = cols > 0 ? (availWidth - (cols - 1) * hg) / cols : minW;
 
         List<Node> managed = getManagedChildren();
         if (managed.isEmpty()) return 0;
@@ -55,7 +72,7 @@ public class MasonryPane extends Pane {
 
         for (Node child : managed) {
             int col = shortestColumn(colHeights);
-            double childHeight = child.prefHeight(cw);
+            double childHeight = child.prefHeight(actualW);
             colHeights[col] += childHeight + vg;
         }
 
@@ -68,24 +85,21 @@ public class MasonryPane extends Pane {
 
     @Override
     protected void layoutChildren() {
-        Insets insets = getInsets();
-        double availWidth = getWidth() - insets.getLeft() - insets.getRight();
-        if (availWidth <= 0) return;
-
-        double cw = columnWidth.get();
-        double hg = hgap.get();
-        double vg = vgap.get();
-        int cols = Math.max(1, (int) ((availWidth + hg) / (cw + hg)));
+        double[] m = layoutMetrics();
+        double actualW = m[0], hg = m[1], vg = m[2];
+        int cols = (int) m[3];
+        double left = m[4], top = m[5];
+        if (cols <= 0) return;
 
         List<Node> managed = getManagedChildren();
         double[] colHeights = new double[cols];
 
         for (Node child : managed) {
             int col = shortestColumn(colHeights);
-            double x = insets.getLeft() + col * (cw + hg);
-            double y = insets.getTop() + colHeights[col];
-            double childHeight = child.prefHeight(cw);
-            child.resizeRelocate(x, y, cw, childHeight);
+            double x = left + col * (actualW + hg);
+            double y = top + colHeights[col];
+            double childHeight = child.prefHeight(actualW);
+            child.resizeRelocate(x, y, actualW, childHeight);
             colHeights[col] = y + childHeight + vg;
         }
     }

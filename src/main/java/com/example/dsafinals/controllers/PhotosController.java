@@ -134,13 +134,7 @@ public class PhotosController {
 
         imageView.fitWidthProperty().bind(card.widthProperty().subtract(16));
 
-        Label nameLabel = new Label(truncate(photo.getFileName(), 18));
-        nameLabel.setStyle("-fx-text-fill: #cccccc; -fx-font-size: 11px;");
-
-        Label dateLabel = new Label(photo.getDateTaken().toString());
-        dateLabel.setStyle("-fx-text-fill: #666; -fx-font-size: 10px;");
-
-        card.getChildren().addAll(imageView, nameLabel, dateLabel);
+        card.getChildren().add(imageView);
         card.setOnMouseClicked(e -> openPhotoDetail(photo));
 
         card.setOnMouseEntered(e -> card.setStyle(
