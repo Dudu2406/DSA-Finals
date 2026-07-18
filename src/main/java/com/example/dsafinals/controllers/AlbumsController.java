@@ -227,8 +227,6 @@ public class AlbumsController {
     private VBox buildPhotoCard(Photo photo) {
         VBox card = new VBox(6);
         card.setAlignment(Pos.CENTER);
-        card.setPrefWidth(150);
-        card.setMaxWidth(150);
         card.setStyle("-fx-background-color: #1e1e1e; -fx-background-radius: 10; -fx-cursor: hand;");
         card.setPadding(new Insets(8));
 
@@ -247,16 +245,7 @@ public class AlbumsController {
 
         imageView.fitWidthProperty().bind(card.widthProperty().subtract(16));
 
-        // File name label
-        Label nameLabel = new Label(truncate(photo.getFileName(), 18));
-        nameLabel.setStyle("-fx-text-fill: #cccccc; -fx-font-size: 11px;");
-        nameLabel.setMaxWidth(200);
-
-        // Date label
-        Label dateLabel = new Label(photo.getDateTaken().toString());
-        dateLabel.setStyle("-fx-text-fill: #666; -fx-font-size: 10px;");
-
-        card.getChildren().addAll(imageView, nameLabel, dateLabel);
+        card.getChildren().add(imageView);
 
         // Click open detail dialog
         card.setOnMouseClicked(e -> openPhotoDetail(photo));

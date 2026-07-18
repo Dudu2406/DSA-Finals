@@ -112,7 +112,7 @@
                     stylesheets="@../stylesheets/application.css">
             <content>
                 <MasonryPane fx:id="photoGrid"
-                             columnWidth="150" hgap="12" vgap="12"/>
+                             columnWidth="250" hgap="12" vgap="12"/>
             </content>
         </ScrollPane>
 
