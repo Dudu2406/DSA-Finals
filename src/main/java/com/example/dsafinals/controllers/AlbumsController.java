@@ -96,7 +96,7 @@ public class AlbumsController {
                     setStyle("");
                 } else {
                     setText(item);
-                    setStyle("-fx-background-color: transparent; -fx-text-fill: white; " +
+                    setStyle("-fx-text-fill: white; " +
                              "-fx-font-size: 14px; -fx-padding: 6 8;");
                 }
             }
